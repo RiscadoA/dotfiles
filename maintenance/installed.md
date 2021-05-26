@@ -8,6 +8,8 @@ wpa-supplicant
 dhcpcd
 paru
 xdg-user-dirs
+ddclient
+openssh
 
 ## Desktop
 
