@@ -20,6 +20,7 @@ unclutter
 alacritty
 ttf-font-awesome
 noto-fonts noto-fonts-cjk
+nordic-theme
 
 ## Misc
 
@@ -33,7 +34,9 @@ neofetch
 git
 vim
 rust
+python python-pip
 visual-studio-code-bin
+valgrind
 
 ## Applications
 
