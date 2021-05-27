@@ -28,6 +28,16 @@ ttf-font-awesome
 noto-fonts noto-fonts-emoji noto-fonts-cjk
 nordic-theme
 wal
+feh
+
+### Libraries
+
+glu
+
+## VM
+
+libvirt
+qemu
 
 ## Misc
 
@@ -44,10 +54,13 @@ passmenu
 git
 vim
 rust
-python python-pip
+python python-pip python-numpy
 visual-studio-code-bin
 valgrind
 gdb
+cmake (qt6-base)
+
+### OpenCV Dependencies
 
 ## Applications
 
