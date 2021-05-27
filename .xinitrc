@@ -39,7 +39,7 @@ xmodmap -e 'keycode 65='
 picom -b
 unclutter &
 dunst &
-#wal -i ~/Pictures/wallpapers/wallpaper-6.jpg
+wal -i ~/pictures/wallpapers/wallpaper-6.jpg
 #LD_PRELOAD=/usr/lib/libcurl.so.3:/usr/lib/spotifywm.so /usr/share/spotify/spotify &
 discord &
 mattermost-desktop &

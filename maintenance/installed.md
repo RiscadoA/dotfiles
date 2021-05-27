@@ -10,6 +10,10 @@ paru
 xdg-user-dirs
 ddclient
 openssh
+zsh oh-my-zsh
+tmux
+pulsemixer
+playerctl
 
 ## Desktop
 
@@ -21,15 +25,19 @@ dunst
 unclutter
 alacritty
 ttf-font-awesome
-noto-fonts noto-fonts-cjk
+noto-fonts noto-fonts-emoji noto-fonts-cjk
 nordic-theme
+wal
 
 ## Misc
 
+zip
+unzip
+htop
 man
-tmux
-zsh oh-my-zsh
 neofetch
+pass
+passmenu
 
 ## Development
 
@@ -39,6 +47,7 @@ rust
 python python-pip
 visual-studio-code-bin
 valgrind
+gdb
 
 ## Applications
 
@@ -48,3 +57,4 @@ slack-desktop
 mattermost-desktop
 zoom
 firefox
+spotify
