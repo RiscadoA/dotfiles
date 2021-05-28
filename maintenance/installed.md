@@ -3,7 +3,7 @@
 ## System
 
 intel-ucode
-netctl
+networkmanager
 wpa-supplicant
 dhcpcd
 paru
@@ -14,6 +14,7 @@ zsh oh-my-zsh
 tmux
 pulsemixer
 playerctl
+nvidia nvidia-prime
 
 ## Desktop
 
@@ -29,25 +30,36 @@ noto-fonts noto-fonts-emoji noto-fonts-cjk
 nordic-theme
 wal
 feh
+lux
+dmenu
+slock
+passmenu
+pinentry-dmenu
 
 ### Libraries
 
 glu
+glew
 
 ## VM
 
-libvirt
 qemu
+libvirt
+edk2-ovmf
+virt-manager
+iptables-nft
+dnsmasq
+looking-glass
 
 ## Misc
 
+glxinfo
 zip
 unzip
 htop
 man
 neofetch
 pass
-passmenu
 
 ## Development
 
@@ -64,6 +76,7 @@ cmake (qt6-base)
 
 ## Applications
 
+steam steam-fonts
 firefox
 discord
 slack-desktop
