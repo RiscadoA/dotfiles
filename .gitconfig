@@ -1,5 +1,6 @@
 [user]
 	email = me@riscadoa.com
 	name = Ricardo Antunes
+	signingkey = A5D0E594B56F434A183C0811FB4A72AC393228F5
 [credential]
 	helper = store

@@ -35,6 +35,7 @@ dmenu
 slock
 passmenu
 pinentry-dmenu
+wireguard resolvconf 
 
 ### Libraries
 
@@ -50,6 +51,7 @@ virt-manager
 iptables-nft
 dnsmasq
 looking-glass
+iotop
 
 ## Misc
 
@@ -60,6 +62,8 @@ htop
 man
 neofetch
 pass
+downgrade
+headsetcontrol
 
 ## Development
 
@@ -71,12 +75,14 @@ visual-studio-code-bin
 valgrind
 gdb
 cmake (qt6-base)
+ruby
 
 ### OpenCV Dependencies
 
 ## Applications
 
-steam steam-fonts
+xournalpp
+steam steam-fonts libtxc
 firefox
 discord
 slack-desktop
