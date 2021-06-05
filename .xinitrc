@@ -45,7 +45,7 @@ unclutter &
 dunst &
 feh --bg-scale ~/pictures/wallpapers/gruvbox_1.png
 alacritty --class spotify,spotify --title Spotify -e spt &
-discord-canary &
+discord &
 mattermost-desktop &
 slack &
 firefox &

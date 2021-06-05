@@ -83,7 +83,7 @@ ruby
 xournalpp
 steam steam-fonts libtxc
 firefox
-discord-canary
+discord
 slack-desktop
 mattermost-desktop
 zoom
