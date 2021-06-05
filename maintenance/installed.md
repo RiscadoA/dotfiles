@@ -80,6 +80,7 @@ ruby
 
 ## Applications
 
+vlc
 xournalpp
 steam steam-fonts libtxc
 firefox
