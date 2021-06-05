@@ -28,7 +28,6 @@ alacritty
 ttf-font-awesome
 noto-fonts noto-fonts-emoji noto-fonts-cjk
 nordic-theme
-wal
 feh
 lux
 dmenu
@@ -84,7 +83,7 @@ ruby
 xournalpp
 steam steam-fonts libtxc
 firefox
-discord
+discord-canary
 slack-desktop
 mattermost-desktop
 zoom

@@ -15,8 +15,10 @@ myManageHook = composeAll
     , className =? "Code"    --> doShift (myWorkspaces !! 1)
     , className =? "firefox" --> doShift (myWorkspaces !! 2)
     , className =? "discord" --> doShift (myWorkspaces !! 3)
-    , className =? "Spotify" --> doShift (myWorkspaces !! 6)
-    , className =? "zoom"    --> doShift (myWorkspaces !! 4)
+    , className =? "Slack" --> doShift (myWorkspaces !! 4)
+    , className =? "Mattermost" --> doShift (myWorkspaces !! 4)
+    , className =? "zoom"    --> doShift (myWorkspaces !! 5)
+    , className =? "Spotify" --> doShift (myWorkspaces !! 7)
     ]
 
 myPlaceHook = placeHook (withGaps (16,0,16,0) (smart (0.5, 0.5)))
@@ -30,10 +32,10 @@ main = do
                        ||| (avoidStruts (spacingRaw False (Border 5 5 5 5) True (Border 5 5 5 5) True $ Tall 1 (10/100) (50/100)))
         , logHook    = dynamicLogWithPP xmobarPP
                            { ppOutput          = hPutStrLn xmproc
-                           , ppCurrent         = xmobarColor "#6693f5" ""
-                           , ppHidden          = xmobarColor "#abd1f3" ""
-                           , ppHiddenNoWindows = xmobarColor "#abd1f3" ""
-                           , ppTitle           = xmobarColor "#6693f5" "" . shorten 50
+                           , ppCurrent         = xmobarColor "#e3a84e" ""
+                           , ppHidden          = xmobarColor "#dfbf8e" ""
+                           , ppHiddenNoWindows = xmobarColor "#dfbf8e" ""
+                           , ppTitle           = xmobarColor "#e3a84e" "" . shorten 50
                            , ppUrgent          = xmobarColor "red" "yellow"
                            }
         , modMask            = mod4Mask
@@ -41,8 +43,8 @@ main = do
         , focusFollowsMouse  = True
         , clickJustFocuses   = True
         , borderWidth        = 2
-        , normalBorderColor  = "#444444"
-        , focusedBorderColor = "#aaaaaa" 
+        , normalBorderColor  = "#665c54"
+        , focusedBorderColor = "#e3a84e" 
         , workspaces         = myWorkspaces
         } `additionalKeys`
         [ ((mod4Mask .|. shiftMask, xK_l), spawn "slock -m \"Screen locked\"")
@@ -63,6 +65,7 @@ myWorkspaces =
     , "\xf1c9"
     , "\xf269"
     , "\xf392"
+    , "\xf0c0"
     , "\xf008"
     , "\xf0eb"
     , "\xf001"
@@ -73,6 +76,7 @@ workspaceNames =
     , "Development"
     , "Network"
     , "Chatting"
+    , "Team"
     , "Video"
     , "Other"
     , "Music"

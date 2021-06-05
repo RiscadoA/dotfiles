@@ -43,9 +43,9 @@ xmodmap -e 'keycode 65='
 picom -b
 unclutter &
 dunst &
-wal -i ~/pictures/wallpapers/wallpaper-6.jpg
+feh --bg-scale ~/pictures/wallpapers/gruvbox_1.png
 #LD_PRELOAD=/usr/lib/libcurl.so.3:/usr/lib/spotifywm.so /usr/share/spotify/spotify &
-discord &
+discord-canary &
 mattermost-desktop &
 slack &
 firefox &
