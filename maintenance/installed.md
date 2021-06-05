@@ -88,4 +88,4 @@ slack-desktop
 mattermost-desktop
 zoom
 firefox
-spotify
+spotifyd spotify-tui

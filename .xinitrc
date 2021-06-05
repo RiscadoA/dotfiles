@@ -44,7 +44,7 @@ picom -b
 unclutter &
 dunst &
 feh --bg-scale ~/pictures/wallpapers/gruvbox_1.png
-#LD_PRELOAD=/usr/lib/libcurl.so.3:/usr/lib/spotifywm.so /usr/share/spotify/spotify &
+alacritty --class spotify,spotify --title Spotify -e spt &
 discord-canary &
 mattermost-desktop &
 slack &

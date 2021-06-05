@@ -6,37 +6,46 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing
+import XMonad.Layout.PerWorkspace
 import System.IO
+import Data.List
+import Data.Maybe
 
 import qualified Graphics.X11.ExtraTypes.XF86 as XF86
 
 myManageHook = composeAll
     [ className =? "Gimp"    --> doFloat
-    , className =? "Code"    --> doShift (myWorkspaces !! 1)
-    , className =? "firefox" --> doShift (myWorkspaces !! 2)
-    , className =? "discord" --> doShift (myWorkspaces !! 3)
-    , className =? "Slack" --> doShift (myWorkspaces !! 4)
-    , className =? "Mattermost" --> doShift (myWorkspaces !! 4)
-    , className =? "zoom"    --> doShift (myWorkspaces !! 5)
-    , className =? "Spotify" --> doShift (myWorkspaces !! 7)
+    , className =? "Code"    --> doShift "code"
+    , className =? "firefox" --> doShift "network"
+    , className =? "discord" --> doShift "discord"
+    , className =? "Slack" --> doShift "team"
+    , className =? "Mattermost" --> doShift "team"
+    , className =? "zoom"    --> doShift "video"
+    , className =? "spotify" --> doShift "music"
     ]
 
 myPlaceHook = placeHook (withGaps (16,0,16,0) (smart (0.5, 0.5)))
+
+layoutFull = (noBorders Full)
+layoutSingle = (avoidStruts (noBorders Full))
+layoutTiled = (avoidStruts (spacingRaw False (Border 5 5 5 5) True (Border 5 5 5 5) True $ Tall 1 (10/100) (50/100)))
+layoutAll = (layoutSingle ||| layoutFull ||| layoutTiled)
 
 main = do
     xmproc <- spawnPipe "xmobar"
     xmonad $ docks defaultConfig
         { manageHook = myManageHook <+> myPlaceHook  <+> manageHook defaultConfig
-        , layoutHook = avoidStruts (noBorders Full)
-                       ||| noBorders Full
-                       ||| (avoidStruts (spacingRaw False (Border 5 5 5 5) True (Border 5 5 5 5) True $ Tall 1 (10/100) (50/100)))
+        , layoutHook = onWorkspace "terminal" layoutTiled $
+		       onWorkspace "network" layoutAll $
+		       onWorkspaces ["video", "code"] (layoutSingle ||| layoutFull) $
+		       layoutSingle
         , logHook    = dynamicLogWithPP xmobarPP
                            { ppOutput          = hPutStrLn xmproc
-                           , ppCurrent         = xmobarColor "#e3a84e" ""
-                           , ppHidden          = xmobarColor "#dfbf8e" ""
-                           , ppHiddenNoWindows = xmobarColor "#dfbf8e" ""
+                           , ppCurrent         = xmobarColor "#e3a84e" "" . workspaceIcon
+                           , ppHidden          = xmobarColor "#dfbf8e" "" . workspaceIcon
+                           , ppHiddenNoWindows = xmobarColor "#dfbf8e" "" . workspaceIcon
+                           , ppUrgent          = xmobarColor "red" "yellow" . workspaceIcon
                            , ppTitle           = xmobarColor "#e3a84e" "" . shorten 50
-                           , ppUrgent          = xmobarColor "red" "yellow"
                            }
         , modMask            = mod4Mask
         , terminal           = "alacritty"
@@ -50,7 +59,8 @@ main = do
         [ ((mod4Mask .|. shiftMask, xK_l), spawn "slock -m \"Screen locked\"")
         , ((mod4Mask .|. controlMask, xK_Left), spawn "playerctl previous")
         , ((mod4Mask .|. controlMask, xK_Right), spawn "playerctl next")
-        , ((mod4Mask .|. controlMask, xK_Down), spawn "playerctl play-pause")
+        , ((mod4Mask .|. controlMask, xK_Up), spawn "playerctl play")
+        , ((mod4Mask .|. controlMask, xK_Down), spawn "playerctl pause")
         , ((mod4Mask .|. controlMask, xK_F1), spawn "setxkbmap -model 'pc105aw-sl' -layout 'us(cmk_ed_dh)' -option 'misc:extend,lv5:caps_switch_lock,misc:cmk_curl_dh';xmodmap -e 'keycode 135=space';xmodmap -e 'keycode 65='") 
         , ((mod4Mask .|. controlMask, xK_F2), spawn "setxkbmap -model 'pc105' -layout pt -option '';xmodmap -e 'keycode 135=space';xmodmap -e 'keycode 65='")
         , ((0, XF86.xF86XK_MonBrightnessUp), spawn "lux -a 5%")
@@ -61,6 +71,17 @@ main = do
 
 myWorkspaces :: [WorkspaceId]
 myWorkspaces =
+    [ "terminal"
+    , "code"
+    , "network"
+    , "discord"
+    , "team"
+    , "video"
+    , "other"
+    , "music"
+    ]
+
+workspaceIcons =
     [ "\xf120"
     , "\xf1c9"
     , "\xf269"
@@ -71,14 +92,6 @@ myWorkspaces =
     , "\xf001"
     ]
 
-workspaceNames =
-    [ "Terminal"
-    , "Development"
-    , "Network"
-    , "Chatting"
-    , "Team"
-    , "Video"
-    , "Other"
-    , "Music"
-    ]
+workspaceIcon :: String -> String
+workspaceIcon id = workspaceIcons !! (fromJust $ elemIndex id myWorkspaces)
 
