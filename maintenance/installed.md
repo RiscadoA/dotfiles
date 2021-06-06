@@ -54,6 +54,7 @@ iotop
 
 ## Misc
 
+xclip
 glxinfo
 zip
 unzip
@@ -89,4 +90,4 @@ slack-desktop
 mattermost-desktop
 zoom
 firefox
-spotifyd spotify-tui
+spotify

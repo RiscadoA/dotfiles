@@ -21,7 +21,7 @@ myManageHook = composeAll
     , className =? "Slack" --> doShift "team"
     , className =? "Mattermost" --> doShift "team"
     , className =? "zoom"    --> doShift "video"
-    , className =? "spotify" --> doShift "music"
+    , className =? "" --> doShift "music" -- Spotify
     ]
 
 myPlaceHook = placeHook (withGaps (16,0,16,0) (smart (0.5, 0.5)))
@@ -36,7 +36,7 @@ main = do
     xmonad $ docks defaultConfig
         { manageHook = myManageHook <+> myPlaceHook  <+> manageHook defaultConfig
         , layoutHook = onWorkspace "terminal" layoutTiled $
-		       onWorkspace "network" layoutAll $
+		       onWorkspaces ["network", "other"] layoutAll $
 		       onWorkspaces ["video", "code"] (layoutSingle ||| layoutFull) $
 		       layoutSingle
         , logHook    = dynamicLogWithPP xmobarPP
