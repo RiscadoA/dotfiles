@@ -38,8 +38,13 @@ wireguard resolvconf
 
 ### Libraries
 
+cuda
 glu
 glew
+glfw-x11
+gtkglext
+gtkmm3
+gtkglext
 
 ## VM
 
@@ -54,6 +59,7 @@ iotop
 
 ## Misc
 
+bigbagkbdtrixxkb
 xclip
 glxinfo
 zip
@@ -67,6 +73,7 @@ headsetcontrol
 
 ## Development
 
+github-cli
 git
 vim
 rust
@@ -76,11 +83,13 @@ valgrind
 gdb
 cmake (qt6-base)
 ruby
+swi-prolog
 
 ### OpenCV Dependencies
 
 ## Applications
 
+anki
 vlc
 xournalpp
 steam steam-fonts libtxc
